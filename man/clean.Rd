@@ -4,7 +4,7 @@
 \alias{clean}
 \title{Clean character vector}
 \usage{
-clean(s, ask_user = T)
+clean(s, ask_user = TRUE)
 }
 \arguments{
 \item{s}{chacacter vector}
