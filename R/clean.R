@@ -52,6 +52,9 @@ clean <- function(s, ask_user = TRUE){
   
   logs <- to_update %>%
     dplyr::select(s, fingerprint, final_value_to_keep)
+  print(as.data.frame(logs))
   res <- dplyr::coalesce(df_final$final_value_to_keep, df_final$s)
   return(res)
+  # TODO check and present results
+  # a <- clnr::clean(clnr::candyhierarchy_localities, ask_user = F)
 }
