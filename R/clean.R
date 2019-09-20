@@ -2,13 +2,18 @@
 #' @description Clean character vector automatically with user feedback
 #' @param s chacacter vector
 #' @param ask_user Logical value in order to ask user her opinoin or automatically clean
+#' @param fingerprint_fun name of function to be used for identifying string keys 
+#' This should receive a char vector and returns same char vector of same lengt 
 #' @return chacacter vector of clean/unified strings
 #' @importFrom magrittr "%>%"
+#' @examples
+#' not_clean <- c("school","School","school","School","School ","SCHOOL","School", "Class A","Class A", "A-CLASS", "A CLASS")
+#' clean(s = not_clean, ask_user = FALSE)
 #' @export
-clean <- function(s, ask_user = TRUE){
+clean <- function(s, ask_user = TRUE, fingerprint_fun = fingerprint){
   
   df <- data.frame(s = s, 
-                   fingerprint = fingerprint(s), 
+                   fingerprint = fingerprint_fun(s), 
                    stringsAsFactors = FALSE)
   
   df <- 

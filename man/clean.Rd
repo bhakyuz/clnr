@@ -4,16 +4,23 @@
 \alias{clean}
 \title{Clean character vector}
 \usage{
-clean(s, ask_user = TRUE)
+clean(s, ask_user = TRUE, fingerprint_fun = fingerprint)
 }
 \arguments{
 \item{s}{chacacter vector}
 
 \item{ask_user}{Logical value in order to ask user her opinoin or automatically clean}
+
+\item{fingerprint_fun}{name of function to be used for identifying string keys 
+This should receive a char vector and returns same char vector of same lengt}
 }
 \value{
 chacacter vector of clean/unified strings
 }
 \description{
 Clean character vector automatically with user feedback
+}
+\examples{
+not_clean <- c("school","School","school","School","School ","SCHOOL","School", "Class A","Class A", "A-CLASS", "A CLASS")
+clean(s = not_clean, ask_user = FALSE)
 }
