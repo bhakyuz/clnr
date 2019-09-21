@@ -46,9 +46,9 @@ sort(table(candyhierarchy_localities_cleaned), decreasing = TRUE) %>% head(5)
 
 ## Things to come:
 - [x] Build initial version with simple functionality
-- [ ] Create more fingerprint functions
+- [x] Create more fingerprint functions
 - [ ] Ensure independency of dplyr
-- [ ] Let user pass their own fingerprint functions
+- [x] Let user pass their own fingerprint functions
 - [ ] Store combined texts as fingerprint functions so it can be used in the future easily for repro purpose
 - [x] Better printing while getting user feedback
 - [x] Log what has been done
