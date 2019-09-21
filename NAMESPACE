@@ -2,5 +2,6 @@
 
 export(clean)
 export(fingerprint)
+export(fingerprint_alphabetical_per_word)
 export(get_feedback)
 importFrom(magrittr,"%>%")
