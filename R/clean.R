@@ -7,8 +7,10 @@
 #' @return chacacter vector of clean/unified strings
 #' @importFrom magrittr "%>%"
 #' @examples
-#' not_clean <- c("school","School","school","School","School ","SCHOOL","School", "Class A","Class A", "A-CLASS", "A CLASS")
+#' not_clean <- c("school","School","school","School",
+#' "School ","SCHOOL","School", "Class A","Class A", "A-CLASS", "A CLASS")
 #' clean(s = not_clean, ask_user = FALSE)
+#' clean(s = not_clean, ask_user = FALSE, fingerprint_fun = fingerprint_alphabetical_per_word)
 #' @export
 clean <- function(s, ask_user = TRUE, fingerprint_fun = fingerprint){
   
@@ -57,10 +59,13 @@ clean <- function(s, ask_user = TRUE, fingerprint_fun = fingerprint){
   
   logs <- to_update %>%
     dplyr::select(s, fingerprint, final_value_to_keep)
-  cat(crayon::yellow("Main modifications are as following:\n"))
-  print(logs)
+  if (nrow(logs) > 0) {
+    cat(crayon::yellow(nrow(logs), " values are affected of which main ones are as following:\n"))
+    print(logs)
+  } else {
+    cat(crayon::yellow("No mofidcation is performed..\n"))
+  }
+  
   res <- dplyr::coalesce(df_final$final_value_to_keep, df_final$s)
   return(res)
-  # TODO check and present results
-  # a <- clnr::clean(clnr::candyhierarchy_localities, ask_user = F)
 }

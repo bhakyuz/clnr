@@ -21,6 +21,8 @@ chacacter vector of clean/unified strings
 Clean character vector automatically with user feedback
 }
 \examples{
-not_clean <- c("school","School","school","School","School ","SCHOOL","School", "Class A","Class A", "A-CLASS", "A CLASS")
+not_clean <- c("school","School","school","School",
+"School ","SCHOOL","School", "Class A","Class A", "A-CLASS", "A CLASS")
 clean(s = not_clean, ask_user = FALSE)
+clean(s = not_clean, ask_user = FALSE, fingerprint_fun = fingerprint_alphabetical_per_word)
 }
