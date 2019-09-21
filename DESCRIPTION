@@ -1,7 +1,7 @@
 Package: clnr
 Type: Package
 Title: Clean strings into unified values 
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Bahadir", "Akyuz", email = "bhakyuz@gmail.com", role = c("aut", "cre"))
 Description: Collection of experiments in order to clean character vectors by clustering and merging similar ones. 
 Depends:
